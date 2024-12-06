@@ -1,0 +1,74 @@
+Albania, Argentina, Australia, Bahrain, Belgium, Brazil, Canada, Denmark, Djibouti, Ecuador, Egypt, Finland, France, Germany, Greece, India, Iraq, Japan, Jordan, Kenya, Kuwait, Malaysia, Netherlands, New Zealand, Norway, Oman, Pakistan, Philippines, Poland, Portugal, Qatar, Saudi Arabia, Seychelles, Singapore, South Korea, Spain, Sri Lanka, Sweden, Thailand, Turkey, United Kingdom, United States, Yemen
+Bahrain, United States
+Philippines, United States
+Thailand, United States
+Taiwan, United States
+Kuwait, United States
+Morocco, United States
+Pakistan, United States
+Australia, Japan, India, United States
+Denmark, Finland, Iceland, Norway, Sweden
+Azerbaijan, Turkey
+France, United Kingdom
+Austria, Croatia, Czech Republic, Hungary, Slovakia, Slovenia
+Moldova, Romania
+Israel, United States
+Philippines, United States
+Iran, Iraq, Russia, Syria
+Tunisia, United States
+Bahrain, Bangladesh, Benin, Brunei, Burkina Faso, Chad, Comoros, Djibouti, Egypt, Gabon, Gambia, Guinea, Guinea-Bissau, Ivory Coast, Jordan, Kenya, Kuwait, Lebanon, Libya, Malaysia, Maldives, Mali, Mauritania, Morocco, Niger, Nigeria, Oman, Pakistan, Palestine, Qatar, Saudi Arabia, Senegal, Sierra Leone, Somalia, Sudan, Togo, Tunisia, Turkey, Uganda, United Arab Emirates, Yemen
+India, United States
+Brazil, United States
+Albania, Bahrain, Estonia, Jordan, Latvia, Lithuania, Romania, Saudi Arabia, Seychelles, United Arab Emirates, United Kingdom, United States
+France, Germany
+Lithuania, Poland, Ukraine
+Turkey, Ukraine
+France, Greece
+Greece, United States
+Australia, United Kingdom, United States
+Azerbaijan, Turkey
+Israel, United Kingdom
+Jordan, United States
+Colombia, United States
+Qatar, United States
+Poland, Ukraine, United Kingdom
+China, Solomon Islands
+Sweden, United Kingdom
+Finland, United Kingdom
+Oman, United Kingdom
+Egypt, Iraq, Jordan
+Australia, Japan
+Japan, United Kingdom
+Kenya, United States
+Greece, United Kingdom
+Papua New Guinea, United States
+United States, Vietnam
+Burkina Faso, Mali, Niger
+South Korea, United Kingdom
+Sweden, United States
+Finland, United States
+Denmark, United States
+Moldova, Romania, Ukraine
+Japan, South Korea, United States
+Australia, Papua New Guinea
+Canada, Philippines
+Belgium, Bulgaria, Canada, Croatia, Czech Republic, Denmark, Estonia, European Union, Finland, France, Germany, Greece, Iceland, Republic of Ireland, Italy, Japan, Latvia, Lithuania, Luxembourg, Netherlands, Norway, Poland, Portugal, Romania, Slovenia, Spain, Sweden, Ukraine, United Kingdom, United States
+Philippines, United Kingdom
+Djibouti, Turkey
+Somalia, Turkey
+Indonesia, Papua New Guinea
+France, Moldova
+Armenia, France
+China, Maldives
+Australia, United Kingdom
+North Korea, Russia
+Kenya, United States
+Philippines, Singapore
+Germany, United Kingdom
+Iraq, Turkey
+Australia, Indonesia
+Cyprus, United States
+United Arab Emirates, United States
+China, Pakistan
+Moldova, United Kingdom
+Belarus, Russia
