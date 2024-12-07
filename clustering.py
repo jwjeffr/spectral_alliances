@@ -41,13 +41,13 @@ class KMeans:
         raise ValueError
 
 
-def spectral_clustering(adjacency_matrix: NDArray, num_categories: int) -> NDArray:
+def spectral_clustering(adjacency_matrix: NDArray, num_categories: int) -> tuple[NDArray, NDArray]:
 
-    degree_matrix = np.diag(np.sum(adjacency_matrix, axis=1))
-    rw_laplacian = np.eye(adjacency_matrix.shape[0]) - np.linalg.solve(degree_matrix, adjacency_matrix)
+    rw_laplacian = np.eye(adjacency_matrix.shape[0]) - adjacency_matrix
     eigenvalues, eigenvectors = np.linalg.eig(rw_laplacian)
 
     eigenvectors = eigenvectors[:, np.argsort(eigenvalues)]
     M = eigenvectors[:, :num_categories]
+    U, S, Vh = np.linalg.svd(M.T @ M)
 
-    return KMeans(k=num_categories).fit(M)
+    return M @ U, KMeans(k=num_categories).fit(M)

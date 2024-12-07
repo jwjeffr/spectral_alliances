@@ -1,48 +1,24 @@
-from pathlib import Path
-from itertools import product
+from itertools import combinations
 
-import numpy as np
 import folium
+import numpy as np
+import matplotlib.pyplot as plt
 
 from clustering import spectral_clustering
+from data_collection import Data
 
 
 def main():
 
-    with Path("alliances.txt").open("r") as file:
-        countries = file \
-            .read() \
-            .replace("\n", ", ") \
-            .strip(", ") \
-            .split(", ")
+    data = Data()
 
-    unique_countries = list(set(countries))
-    unique_countries.sort()
+    pca_vectors, categories = spectral_clustering(data.get_adjacency_matrix(), num_categories=3)
 
-    index_to_country = {i: country for i, country in enumerate(unique_countries)}
-    country_to_index = {y: x for x, y in index_to_country.items()}
-
-    num_countries = len(unique_countries)
-    adjacency_matrix = np.zeros((num_countries, num_countries), dtype=float)
-
-    with Path("alliances.txt").open("r") as file:
-
-        for line in file:
-            countries = line.strip("\n").split(", ")
-
-            for first_country, second_country in product(countries, repeat=2):
-                if first_country == second_country:
-                    continue
-                i, j = country_to_index[first_country], country_to_index[second_country]
-                adjacency_matrix[i, j] = 1.0
-
-    adjacency_matrix /= np.linalg.norm(adjacency_matrix, axis=1)[:, np.newaxis]
-
-    categories = spectral_clustering(adjacency_matrix, num_categories=3)
     country_to_category = {
-        country: int(categories[country_to_index[country]]) for country in unique_countries
+        country: int(categories[data.country_to_index[country]]) for country in data.unique_countries
     }
-    colors = {0: "#ff5733", 1: "#a8ffa6", 2: "#faa6ff"}
+    colors = {0: "#ff0000", 1: "#009bff", 2: "#ff8300"}
+    markers = {0: "o", 1: "^", 2: "s"}
 
     def style_function(feature):
 
@@ -60,6 +36,49 @@ def main():
         style_function=style_function
     ).add_to(m)
     m.save("map.html")
+
+    fig, ax = plt.subplots(subplot_kw={"projection": "3d"})
+    for x in np.unique(categories):
+        ax.scatter(*pca_vectors[categories == x].T, color=colors[x], marker=markers[x], alpha=0.8)
+    ax.set_xlabel("principal component 1")
+    ax.set_ylabel("principal component 2")
+    ax.set_zlabel("principal component 3")
+    ax.set_xticklabels([])
+    ax.set_yticklabels([])
+    ax.set_zticklabels([])
+
+    min_, max_ = np.min(pca_vectors, axis=0), np.max(pca_vectors, axis=0)
+    ax.set_xlim((min_[0], max_[0]))
+    ax.set_ylim((min_[1], max_[1]))
+    ax.set_zlim((min_[2], max_[2]))
+
+    # draw sphere
+    u, v = np.mgrid[0:2 * np.pi:20j, 0:np.pi:10j]
+    hungary_vector = pca_vectors[data.country_to_index["Hungary"], :]
+    austria_vector = pca_vectors[data.country_to_index["Austria"], :]
+    slovakia_vector = pca_vectors[data.country_to_index["Slovakia"], :]
+
+    assert np.all(np.isclose(hungary_vector, austria_vector)) and np.all(np.isclose(austria_vector, slovakia_vector))
+
+    x = 0.03
+    vertices = [
+        hungary_vector + np.array([x, x, x]),
+        hungary_vector - np.array([x, x, x]),
+        hungary_vector + np.array([-x, x, x]),
+        hungary_vector - np.array([-x, x, x]),
+        hungary_vector + np.array([x, -x, x]),
+        hungary_vector - np.array([x, -x, x]),
+        hungary_vector + np.array([x, x, -x]),
+        hungary_vector - np.array([x, x, -x])
+    ]
+
+    for v1, v2 in combinations(vertices, 2):
+        if np.isclose(np.linalg.norm(v1 - v2), 2.0 * x):
+            x1, y1, z1 = v1
+            x2, y2, z2 = v2
+            ax.plot3D([x1, x2], [y1, y2], [z1, z2], color="black", linestyle="--", zorder=6, linewidth=1.0)
+
+    fig.savefig("pca.pdf", bbox_inches="tight")
 
 
 if __name__ == "__main__":

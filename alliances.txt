@@ -52,7 +52,7 @@ Moldova, Romania, Ukraine
 Japan, South Korea, United States
 Australia, Papua New Guinea
 Canada, Philippines
-Belgium, Bulgaria, Canada, Croatia, Czech Republic, Denmark, Estonia, European Union, Finland, France, Germany, Greece, Iceland, Republic of Ireland, Italy, Japan, Latvia, Lithuania, Luxembourg, Netherlands, Norway, Poland, Portugal, Romania, Slovenia, Spain, Sweden, Ukraine, United Kingdom, United States
+Belgium, Bulgaria, Canada, Croatia, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Iceland, Republic of Ireland, Italy, Japan, Latvia, Lithuania, Luxembourg, Netherlands, Norway, Poland, Portugal, Romania, Slovenia, Spain, Sweden, Ukraine, United Kingdom, United States
 Philippines, United Kingdom
 Djibouti, Turkey
 Somalia, Turkey
